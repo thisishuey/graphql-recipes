@@ -29,15 +29,17 @@ class Navigation extends Component {
           <Typography className={classes.grow} color="inherit" variant="h6">
             Recipes App
           </Typography>
-          <Button color="inherit" component={HomeLink}>
-            Home
-          </Button>
-          <Button color="inherit" component={ListRecipesLink}>
-            List Recipes
-          </Button>
-          <Button color="inherit" component={AddRecipeLink}>
-            Add Recipe
-          </Button>
+          <nav>
+            <Button color="inherit" component={HomeLink}>
+              Home
+            </Button>
+            <Button color="inherit" component={ListRecipesLink}>
+              List Recipes
+            </Button>
+            <Button color="inherit" component={AddRecipeLink}>
+              Add Recipe
+            </Button>
+          </nav>
         </Toolbar>
       </AppBar>
     );
