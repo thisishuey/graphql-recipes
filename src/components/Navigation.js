@@ -1,13 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import AlarmIcon from "@material-ui/icons/Alarm";
 import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 
 const styles = theme => ({
-  root: {
-    paddingTop: theme.spacing.unit * 8
-  },
   grow: {
     flexGrow: 1
   },
@@ -23,7 +20,7 @@ class Navigation extends Component {
     const ListRecipesLink = props => <Link to="/recipes" {...props} />;
     const AddRecipeLink = props => <Link to="/recipes/add" {...props} />;
     return (
-      <div className={classes.root}>
+      <Fragment>
         <AppBar position="fixed">
           <Toolbar>
             <AlarmIcon className={classes.alarmIcon} />
@@ -41,7 +38,7 @@ class Navigation extends Component {
             </Button>
           </Toolbar>
         </AppBar>
-      </div>
+      </Fragment>
     );
   }
 }
