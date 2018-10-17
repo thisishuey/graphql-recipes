@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
+import { Typography } from "@material-ui/core";
 import ListRecipesQuery from "../../graphql/queries/ListRecipes";
 
 class ListRecipes extends Component {
@@ -7,21 +8,21 @@ class ListRecipes extends Component {
     const { recipes } = this.props;
     return (
       <div>
-        <h1>List Recipes</h1>
+        <Typography variant="h2">List Recipes</Typography>
         {recipes.map((recipe, i) => {
           return (
             <div key={i}>
-              <h4>Recipe Name: {recipe.name}</h4>
+              <Typography variant="h4">Recipe Name: {recipe.name}</Typography>
               <div>
-                <p>Ingredients</p>
+                <Typography variant="h6">Ingredients</Typography>
                 {recipe.ingredients.map((ingredient, j) => (
-                  <p key={j}>{ingredient}</p>
+                  <Typography key={j}>{ingredient}</Typography>
                 ))}
               </div>
               <div>
-                <h4>Instructions</h4>
+                <Typography variant="h6">Instructions</Typography>
                 {recipe.instructions.map((instruction, k) => (
-                  <p key={k}>{instruction}</p>
+                  <Typography key={k}>{instruction}</Typography>
                 ))}
               </div>
             </div>

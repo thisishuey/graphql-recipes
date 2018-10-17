@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import { Typography } from "@material-ui/core";
 
 class AddRecipe extends Component {
   render() {
-    return <div>Add Recipe</div>;
+    return (
+      <div>
+        <Typography>Add Recipe</Typography>
+      </div>
+    );
   }
 }
 

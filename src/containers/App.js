@@ -1,15 +1,24 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
+import withRoot from "../utils/withRoot";
 import Home from "./Home";
 import ListRecipes from "./recipes/ListRecipes";
 import AddRecipe from "./recipes/AddRecipe";
 import Navigation from "../components/Navigation";
-import "./App.css";
+
+const styles = theme => ({
+  root: {
+    textAlign: "center",
+    paddingTop: theme.spacing.unit * 20
+  }
+});
 
 class App extends Component {
   render() {
+    const { classes } = this.props;
     return (
-      <div className="App">
+      <div className={classes.root}>
         <BrowserRouter>
           <div>
             <Navigation />
@@ -25,4 +34,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRoot(withStyles(styles)(App));

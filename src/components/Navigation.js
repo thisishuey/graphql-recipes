@@ -1,14 +1,21 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Button, Typography } from "@material-ui/core";
 
 class Navigation extends Component {
   render() {
     return (
       <div>
-        <h1>Recipes App</h1>
-        <Link to="/">Home</Link>
-        <Link to="/recipes">List Recipes</Link>
-        <Link to="/recipes/add">Add Recipe</Link>
+        <Typography variant="h1">Recipes App</Typography>
+        <Button component={Link} to="/">
+          Home
+        </Button>
+        <Button component={Link} to="/recipes">
+          List Recipes
+        </Button>
+        <Button component={Link} to="/recipes/add">
+          Add Recipe
+        </Button>
       </div>
     );
   }
