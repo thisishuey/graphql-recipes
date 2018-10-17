@@ -5,11 +5,13 @@ import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 import AlarmIcon from "@material-ui/icons/Alarm";
 
 const styles = theme => ({
+  root: {
+    paddingTop: theme.spacing.unit * 8
+  },
   grow: {
     flexGrow: 1
   },
   alarmIcon: {
-    textAlign: "center",
     marginRight: theme.spacing.unit
   }
 });
@@ -21,16 +23,22 @@ class Navigation extends Component {
     const ListRecipesLink = props => <Link to="/recipes" {...props} />;
     const AddRecipeLink = props => <Link to="/recipes/add" {...props} />;
     return (
-      <div>
-        <AppBar position="static">
+      <div className={classes.root}>
+        <AppBar position="fixed">
           <Toolbar>
             <AlarmIcon className={classes.alarmIcon} />
-            <Typography variant="h6" className={classes.grow}>
+            <Typography variant="h6" className={classes.grow} color="inherit">
               Recipes App
             </Typography>
-            <Button component={HomeLink}>Home</Button>
-            <Button component={ListRecipesLink}>List Recipes</Button>
-            <Button component={AddRecipeLink}>Add Recipe</Button>
+            <Button component={HomeLink} color="inherit">
+              Home
+            </Button>
+            <Button component={ListRecipesLink} color="inherit">
+              List Recipes
+            </Button>
+            <Button component={AddRecipeLink} color="inherit">
+              Add Recipe
+            </Button>
           </Toolbar>
         </AppBar>
       </div>
