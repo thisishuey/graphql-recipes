@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
-import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 import AlarmIcon from "@material-ui/icons/Alarm";
+import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 
 const styles = theme => ({
   root: {
