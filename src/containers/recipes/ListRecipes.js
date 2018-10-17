@@ -1,26 +1,24 @@
 import React, { Component, Fragment } from "react";
 import { graphql } from "react-apollo";
 import { withStyles } from "@material-ui/core/styles";
-import {
-  Card,
-  CardContent,
-  Grid,
-  List,
-  ListItem,
-  ListItemText,
-  Paper,
-  Typography
-} from "@material-ui/core";
+import { Card, CardContent, CardHeader, Typography } from "@material-ui/core";
 import ListRecipesQuery from "../../graphql/queries/ListRecipes";
 
 const styles = theme => ({
-  paper: {
-    flexGrow: 1,
-    margin: theme.spacing.unit * 2,
-    padding: theme.spacing.unit
-  },
   card: {
-    minWidth: 275
+    marginBottom: theme.spacing.unit * 2
+  },
+  cardHeader: {
+    backgroundColor:
+      theme.palette.grey[theme.palette.type === "dark" ? 900 : 200]
+  },
+  heroContent: {
+    maxWidth: 600,
+    margin: "0 auto",
+    padding: `${theme.spacing.unit * 8}px ${theme.spacing.unit * 6}px`
+  },
+  ingredients: {
+    marginBottom: theme.spacing.unit * 2
   }
 });
 
@@ -29,40 +27,32 @@ class ListRecipes extends Component {
     const { classes, recipes } = this.props;
     return (
       <Fragment>
-        <Paper className={classes.paper}>
-          <Typography color="primary" variant="h2">
+        <div className={classes.heroContent}>
+          <Typography align="center" color="primary" variant="h2">
             List Recipes
           </Typography>
-          {recipes.map((recipe, i) => (
-            <Card className={classes.card} key={i}>
-              <CardContent>
-                <Typography color="secondary" variant="h4">
-                  {recipe.name}
-                </Typography>
-                <div>
-                  <Typography variant="h6">Ingredients</Typography>
-                  <List>
-                    {recipe.ingredients.map((ingredient, j) => (
-                      <ListItem key={j}>
-                        <ListItemText>{ingredient}</ListItemText>
-                      </ListItem>
-                    ))}
-                  </List>
-                </div>
-                <div>
-                  <Typography variant="h6">Instructions</Typography>
-                  <List>
-                    {recipe.instructions.map((instruction, k) => (
-                      <ListItem key={k}>
-                        <ListItemText>{instruction}</ListItemText>
-                      </ListItem>
-                    ))}
-                  </List>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </Paper>
+        </div>
+        {recipes.map((recipe, i) => (
+          <Card className={classes.card} key={i}>
+            <CardHeader className={classes.cardHeader} title={recipe.name} />
+            <CardContent>
+              <div className={classes.ingredients}>
+                <Typography variant="h6">Ingredients</Typography>
+                {recipe.ingredients.map((ingredient, j) => (
+                  <Typography key={j}>{ingredient}</Typography>
+                ))}
+              </div>
+              <div className={classes.instructions}>
+                <Typography variant="h6">Instructions</Typography>
+                {recipe.instructions.map((instruction, k) => (
+                  <Typography key={k}>
+                    {k + 1}. {instruction}
+                  </Typography>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
       </Fragment>
     );
   }

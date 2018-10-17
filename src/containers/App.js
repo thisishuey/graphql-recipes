@@ -12,9 +12,8 @@ const styles = theme => ({
     width: "auto",
     marginLeft: theme.spacing.unit * 2,
     marginRight: theme.spacing.unit * 2,
-    paddingTop: theme.spacing.unit * 8,
-    [theme.breakpoints.up(752 + theme.spacing.unit * 2 * 2)]: {
-      width: 752,
+    [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
+      width: 900,
       marginLeft: "auto",
       marginRight: "auto"
     }
@@ -25,20 +24,18 @@ class App extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Fragment>
-        <BrowserRouter>
-          <Fragment>
-            <Navigation />
-            <main className={classes.main}>
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/recipes" component={ListRecipes} />
-                <Route path="/recipes/add" component={AddRecipe} />
-              </Switch>
-            </main>
-          </Fragment>
-        </BrowserRouter>
-      </Fragment>
+      <BrowserRouter>
+        <Fragment>
+          <Navigation />
+          <main className={classes.main}>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/recipes" component={ListRecipes} />
+              <Route path="/recipes/add" component={AddRecipe} />
+            </Switch>
+          </main>
+        </Fragment>
+      </BrowserRouter>
     );
   }
 }
