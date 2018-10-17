@@ -4,18 +4,15 @@ import { Button, Typography } from "@material-ui/core";
 
 class Navigation extends Component {
   render() {
+    const HomeLink = props => <Link to="/" {...props} />;
+    const ListRecipesLink = props => <Link to="/recipes" {...props} />;
+    const AddRecipeLink = props => <Link to="/recipes/add" {...props} />;
     return (
       <div>
         <Typography variant="h1">Recipes App</Typography>
-        <Button component={Link} to="/">
-          Home
-        </Button>
-        <Button component={Link} to="/recipes">
-          List Recipes
-        </Button>
-        <Button component={Link} to="/recipes/add">
-          Add Recipe
-        </Button>
+        <Button component={HomeLink}>Home</Button>
+        <Button component={ListRecipesLink}>List Recipes</Button>
+        <Button component={AddRecipeLink}>Add Recipe</Button>
       </div>
     );
   }
