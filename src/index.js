@@ -6,7 +6,7 @@ import { ApolloProvider } from "react-apollo";
 import appSyncConfig from "./utils/aws-exports";
 import * as serviceWorker from "./utils/serviceWorker";
 import App from "./containers/App";
-import "index.css";
+import "./index.css";
 
 const client = new AWSAppSyncClient({
   url: appSyncConfig.aws_appsync_graphqlEndpoint,
