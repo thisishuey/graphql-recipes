@@ -27,16 +27,16 @@ class Navigation extends Component {
         <AppBar position="fixed">
           <Toolbar>
             <AlarmIcon className={classes.alarmIcon} />
-            <Typography variant="h6" className={classes.grow} color="inherit">
+            <Typography className={classes.grow} color="inherit" variant="h6">
               Recipes App
             </Typography>
-            <Button component={HomeLink} color="inherit">
+            <Button color="inherit" component={HomeLink}>
               Home
             </Button>
-            <Button component={ListRecipesLink} color="inherit">
+            <Button color="inherit" component={ListRecipesLink}>
               List Recipes
             </Button>
-            <Button component={AddRecipeLink} color="inherit">
+            <Button color="inherit" component={AddRecipeLink}>
               Add Recipe
             </Button>
           </Toolbar>
