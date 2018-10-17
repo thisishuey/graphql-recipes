@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "apollo-client": "^2.4.2",
     "aws-appsync": "^1.4.0",
     "aws-appsync-react": "^1.2.0",
+    "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
     "react": "^16.5.2",
     "react-apollo": "^2.2.4",
