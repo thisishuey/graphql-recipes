@@ -3,6 +3,7 @@ import { graphql } from "react-apollo";
 import { withStyles } from "@material-ui/core/styles";
 import { Card, CardContent, CardHeader, Typography } from "@material-ui/core";
 import ListRecipesQuery from "../../graphql/queries/ListRecipes";
+import OnCreateRecipeSubscription from "../../graphql/subscriptions/OnCreateRecipe";
 
 const styles = theme => ({
   card: {
@@ -23,6 +24,9 @@ const styles = theme => ({
 });
 
 class ListRecipes extends Component {
+  componentWillMount() {
+    this.props.subscribeToOnCreateRecipe();
+  }
   render() {
     const { classes, recipes } = this.props;
     return (
@@ -63,6 +67,30 @@ export default graphql(ListRecipesQuery, {
     fetchPolicy: "cache-and-network"
   },
   props: props => ({
-    recipes: props.data.listRecipes ? props.data.listRecipes.items : []
+    recipes: props.data.listRecipes ? props.data.listRecipes.items : [],
+    subscribeToOnCreateRecipe: params => {
+      props.data.subscribeToMore({
+        document: OnCreateRecipeSubscription,
+        updateQuery: (
+          previous,
+          {
+            subscriptionData: {
+              data: { onCreateRecipe }
+            }
+          }
+        ) => ({
+          ...previous,
+          listRecipes: {
+            __typename: "RecipeConnection",
+            items: [
+              onCreateRecipe,
+              ...previous.listRecipes.items.filter(
+                recipe => recipe.id !== onCreateRecipe.id
+              )
+            ]
+          }
+        })
+      });
+    }
   })
 })(withStyles(styles)(ListRecipes));
