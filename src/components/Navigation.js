@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import AlarmIcon from "@material-ui/icons/Alarm";
 import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
@@ -19,9 +19,9 @@ const styles = theme => ({
 class Navigation extends Component {
   render() {
     const { classes } = this.props;
-    const HomeLink = props => <Link to="/" {...props} />;
-    const ListRecipesLink = props => <Link to="/recipes" {...props} />;
-    const AddRecipeLink = props => <Link to="/recipes/add" {...props} />;
+    const HomeLink = props => <NavLink to="/" {...props} />;
+    const ListRecipesLink = props => <NavLink to="/recipes" {...props} />;
+    const AddRecipeLink = props => <NavLink to="/recipes/add" {...props} />;
     return (
       <AppBar className={classes.appBar}>
         <Toolbar>

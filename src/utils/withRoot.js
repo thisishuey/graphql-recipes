@@ -7,11 +7,15 @@ import {
   createGenerateClassName,
   jssPreset
 } from "@material-ui/core/styles";
+import primary from "@material-ui/core/colors/blue";
+import secondary from "@material-ui/core/colors/pink";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 const theme = createMuiTheme({
   palette: {
-    type: "dark"
+    type: "dark",
+    primary: primary,
+    secondary: secondary
   },
   typography: {
     useNextVariants: true

@@ -1,25 +1,16 @@
 import React, { Component, Fragment } from "react";
 import { graphql } from "react-apollo";
 import { withStyles } from "@material-ui/core/styles";
-import { Card, CardContent, CardHeader, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import ListRecipesQuery from "../../graphql/queries/ListRecipes";
 import OnCreateRecipeSubscription from "../../graphql/subscriptions/OnCreateRecipe";
+import Recipe from "../../components/recipes/Recipe";
 
 const styles = theme => ({
-  card: {
-    marginBottom: theme.spacing.unit * 2
-  },
-  cardHeader: {
-    backgroundColor:
-      theme.palette.grey[theme.palette.type === "dark" ? 900 : 200]
-  },
-  heroContent: {
+  hero: {
     maxWidth: 600,
     margin: "0 auto",
     padding: `${theme.spacing.unit * 8}px ${theme.spacing.unit * 6}px`
-  },
-  ingredients: {
-    marginBottom: theme.spacing.unit * 2
   }
 });
 
@@ -31,31 +22,13 @@ class ListRecipes extends Component {
     const { classes, recipes } = this.props;
     return (
       <Fragment>
-        <div className={classes.heroContent}>
+        <div className={classes.hero}>
           <Typography align="center" color="primary" variant="h2">
             List Recipes
           </Typography>
         </div>
         {recipes.map((recipe, i) => (
-          <Card className={classes.card} key={i}>
-            <CardHeader className={classes.cardHeader} title={recipe.name} />
-            <CardContent>
-              <div className={classes.ingredients}>
-                <Typography variant="h6">Ingredients</Typography>
-                {recipe.ingredients.map((ingredient, j) => (
-                  <Typography key={j}>{ingredient}</Typography>
-                ))}
-              </div>
-              <div className={classes.instructions}>
-                <Typography variant="h6">Instructions</Typography>
-                {recipe.instructions.map((instruction, k) => (
-                  <Typography key={k}>
-                    {k + 1}. {instruction}
-                  </Typography>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+          <Recipe recipe={recipe} key={i} />
         ))}
       </Fragment>
     );
