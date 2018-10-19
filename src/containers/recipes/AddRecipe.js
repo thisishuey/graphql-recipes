@@ -8,12 +8,16 @@ import Recipe from "../../components/recipes/Recipe";
 
 const styles = theme =>
   createStyles({
+    gutterBottom: {
+      marginBottom: theme.spacing.unit * 2
+    },
     hero: {
       maxWidth: 600,
       margin: "0 auto",
       padding: `${theme.spacing.unit * 8}px ${theme.spacing.unit * 6}px`
     },
     paper: {
+      marginBottom: theme.spacing.unit * 2,
       padding: theme.spacing.unit * 2
     }
   });
@@ -36,7 +40,7 @@ class AddRecipe extends Component {
     const { ingredient, ingredients } = this.state;
     this.setState({
       ingredient: "",
-      ingredients: [...ingredients, ingredient]
+      ingredients: [...ingredients, ...ingredient.split("\n")]
     });
   };
 
@@ -45,7 +49,7 @@ class AddRecipe extends Component {
     const { instruction, instructions } = this.state;
     this.setState({
       instruction: "",
-      instructions: [...instructions, instruction]
+      instructions: [...instructions, ...instruction.split("\n")]
     });
   };
 
@@ -82,27 +86,31 @@ class AddRecipe extends Component {
         <Paper className={classes.paper}>
           <TextField
             autoFocus
+            className={classes.gutterBottom}
             fullWidth
             label="Name"
             onChange={event => this.handleChange("name", event.target.value)}
             value={name}
           />
           <TextField
+            className={classes.gutterBottom}
             fullWidth
             label="Ingredient"
+            multiline
             onChange={event =>
               this.handleChange("ingredient", event.target.value)
             }
             value={ingredient}
           />
           <Button
+            className={classes.gutterBottom}
             color="secondary"
             onClick={this.handleAddIngredientClick}
-            variant="contained"
           >
             Add Ingredient
           </Button>
           <TextField
+            className={classes.gutterBottom}
             fullWidth
             label="Instruction"
             multiline
@@ -112,9 +120,9 @@ class AddRecipe extends Component {
             value={instruction}
           />
           <Button
+            className={classes.gutterBottom}
             color="secondary"
             onClick={this.handleAddInstructionClick}
-            variant="contained"
           >
             Add Instruction
           </Button>
