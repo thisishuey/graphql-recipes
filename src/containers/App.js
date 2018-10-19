@@ -1,24 +1,25 @@
 import React, { Component, Fragment } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { withStyles } from "@material-ui/core/styles";
+import { createStyles, withStyles } from "@material-ui/core/styles";
 import withRoot from "../utils/withRoot";
 import Home from "./Home";
 import ListRecipes from "./recipes/ListRecipes";
 import AddRecipe from "./recipes/AddRecipe";
 import Navigation from "../components/Navigation";
 
-const styles = theme => ({
-  main: {
-    width: "auto",
-    marginLeft: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 2,
-    [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
-      width: 900,
-      marginLeft: "auto",
-      marginRight: "auto"
+const styles = theme =>
+  createStyles({
+    main: {
+      width: "auto",
+      marginLeft: theme.spacing.unit * 2,
+      marginRight: theme.spacing.unit * 2,
+      [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
+        width: 900,
+        marginLeft: "auto",
+        marginRight: "auto"
+      }
     }
-  }
-});
+  });
 
 class App extends Component {
   render() {

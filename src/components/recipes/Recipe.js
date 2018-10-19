@@ -1,19 +1,20 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
+import { createStyles, withStyles } from "@material-ui/core/styles";
 import { Card, CardContent, CardHeader, Typography } from "@material-ui/core";
 
-const styles = theme => ({
-  card: {
-    marginBottom: theme.spacing.unit * 2
-  },
-  cardHeader: {
-    backgroundColor:
-      theme.palette.grey[theme.palette.type === "dark" ? 900 : 200]
-  },
-  ingredients: {
-    marginBottom: theme.spacing.unit * 2
-  }
-});
+const styles = theme =>
+  createStyles({
+    card: {
+      marginBottom: theme.spacing.unit * 2
+    },
+    cardHeader: {
+      backgroundColor:
+        theme.palette.grey[theme.palette.type === "dark" ? 900 : 200]
+    },
+    ingredients: {
+      marginBottom: theme.spacing.unit * 2
+    }
+  });
 
 function Recipe(props) {
   const { classes, recipe } = props;

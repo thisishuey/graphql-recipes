@@ -1,18 +1,19 @@
 import React, { Component, Fragment } from "react";
 import { graphql } from "react-apollo";
-import { withStyles } from "@material-ui/core/styles";
+import { createStyles, withStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import ListRecipesQuery from "../../graphql/queries/ListRecipes";
 import OnCreateRecipeSubscription from "../../graphql/subscriptions/OnCreateRecipe";
 import Recipe from "../../components/recipes/Recipe";
 
-const styles = theme => ({
-  hero: {
-    maxWidth: 600,
-    margin: "0 auto",
-    padding: `${theme.spacing.unit * 8}px ${theme.spacing.unit * 6}px`
-  }
-});
+const styles = theme =>
+  createStyles({
+    hero: {
+      maxWidth: 600,
+      margin: "0 auto",
+      padding: `${theme.spacing.unit * 8}px ${theme.spacing.unit * 6}px`
+    }
+  });
 
 class ListRecipes extends Component {
   componentWillMount() {

@@ -1,21 +1,22 @@
 import React, { Component, Fragment } from "react";
 import { graphql } from "react-apollo";
-import { withStyles } from "@material-ui/core/styles";
+import { createStyles, withStyles } from "@material-ui/core/styles";
 import { Button, Paper, TextField, Typography } from "@material-ui/core";
 import CreateRecipeMutation from "../../graphql/mutations/CreateRecipe";
 import ListRecipesQuery from "../../graphql/queries/ListRecipes";
 import Recipe from "../../components/recipes/Recipe";
 
-const styles = theme => ({
-  hero: {
-    maxWidth: 600,
-    margin: "0 auto",
-    padding: `${theme.spacing.unit * 8}px ${theme.spacing.unit * 6}px`
-  },
-  paper: {
-    padding: theme.spacing.unit * 2
-  }
-});
+const styles = theme =>
+  createStyles({
+    hero: {
+      maxWidth: 600,
+      margin: "0 auto",
+      padding: `${theme.spacing.unit * 8}px ${theme.spacing.unit * 6}px`
+    },
+    paper: {
+      padding: theme.spacing.unit * 2
+    }
+  });
 
 class AddRecipe extends Component {
   state = {
