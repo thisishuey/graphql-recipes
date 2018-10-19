@@ -12,8 +12,9 @@ const styles = theme =>
     appBar: {
       position: "sticky"
     },
-    grow: {
-      flexGrow: 1
+    brand: {
+      flexGrow: 1,
+      textDecoration: "none"
     },
     navButton: {
       marginRight: theme.spacing.unit,
@@ -32,7 +33,12 @@ function Navigation(props) {
     <AppBar className={classes.appBar}>
       <Toolbar>
         <AlarmIcon className={classes.alarmIcon} />
-        <Typography className={classes.grow} color="inherit" variant="h6">
+        <Typography
+          className={classes.brand}
+          component={HomeLink}
+          color="inherit"
+          variant="h6"
+        >
           Recipes App
         </Typography>
         <nav>

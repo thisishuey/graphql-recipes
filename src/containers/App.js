@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { createStyles, withStyles } from "@material-ui/core/styles";
 import withRoot from "../utils/withRoot";
-import Home from "./Home";
+import Home from "../components/Home";
 import ListRecipes from "./recipes/ListRecipes";
 import AddRecipe from "./recipes/AddRecipe";
 import Navigation from "../components/Navigation";
