@@ -18,6 +18,8 @@ const styles = theme =>
 
 function Recipe(props) {
   const { classes, recipe } = props;
+  const { ingredients, instructions } = recipe;
+  console.log(ingredients);
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -25,15 +27,21 @@ function Recipe(props) {
         title={recipe.name || "New Recipe"}
       />
       <CardContent>
-        <div className={classes.ingredients}>
+        <div
+          className={classes.ingredients}
+          style={{ display: ingredients.length ? "block" : "none" }}
+        >
           <Typography variant="h6">Ingredients</Typography>
-          {recipe.ingredients.map((ingredient, j) => (
+          {ingredients.map((ingredient, j) => (
             <Typography key={j}>{ingredient}</Typography>
           ))}
         </div>
-        <div className={classes.instructions}>
+        <div
+          className={classes.instructions}
+          style={{ display: instructions.length ? "block" : "none" }}
+        >
           <Typography variant="h6">Instructions</Typography>
-          {recipe.instructions.map((instruction, k) => (
+          {instructions.map((instruction, k) => (
             <Typography key={k}>
               {k + 1}. {instruction}
             </Typography>
