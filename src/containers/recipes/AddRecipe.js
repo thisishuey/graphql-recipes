@@ -95,6 +95,7 @@ class AddRecipe extends Component {
           <TextField
             className={classes.gutterBottom}
             fullWidth
+            helperText="Mutliple lines will be converted into individual ingredients."
             label="Ingredient"
             multiline
             onChange={event =>
@@ -112,6 +113,7 @@ class AddRecipe extends Component {
           <TextField
             className={classes.gutterBottom}
             fullWidth
+            helperText="Multiple lines will be converted into individual instructions."
             label="Instruction"
             multiline
             onChange={event =>
