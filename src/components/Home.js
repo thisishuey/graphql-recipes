@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { createStyles, withStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
+
 const styles = theme =>
   createStyles({
     hero: {
@@ -9,6 +10,7 @@ const styles = theme =>
       padding: `${theme.spacing.unit * 8}px ${theme.spacing.unit * 6}px`
     }
   });
+
 function Home(props) {
   const { classes } = props;
   return (
@@ -25,4 +27,5 @@ function Home(props) {
     </Fragment>
   );
 }
+
 export default withStyles(styles)(Home);
